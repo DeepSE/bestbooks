@@ -46,6 +46,8 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
     
         run: |
+          sudo apt-get install language-pack-ko
+          sudo apt-get install korean*
           pip3 install -r requirements.txt
           python3 get_ss.py
           
