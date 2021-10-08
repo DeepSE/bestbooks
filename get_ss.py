@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--start-maximized')
-chrome_options.add_argument('–lang= ko')
+chrome_options.add_argument('–lang=ko-KR')
 
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
