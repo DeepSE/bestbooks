@@ -22,7 +22,7 @@ def get_ss(url, out):
     #the element with longest height on page
     S = lambda X: driver.execute_script('return document.body.parentNode.scroll' + X)
     print(S('Width'), S('Height'))
-    driver.set_window_size(S('Width'), min(5000, S('Height')))
+    driver.set_window_size(S('Width'), S('Height'))
 
     sleep(2)
     driver.save_screenshot(out)
