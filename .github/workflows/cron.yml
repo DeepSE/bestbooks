@@ -44,6 +44,7 @@ jobs:
       - name: Run a multi-line script
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
         run: |
           sudo apt-get install language-pack-ko
