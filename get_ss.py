@@ -2,6 +2,9 @@ from selenium import webdriver
 from time import sleep 
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from git_issue import create_issue
+import datetime
+
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -30,9 +33,23 @@ if __name__ == '__main__':
             'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?range=0&kind=0&orderClick=DBA&mallGb=KOR&linkClass=0'
     ]
 
+    now = datetime.datetime.now()
+    now_str = now.strftime("%Y-%m-%d")
+
+    body = "" 
+
     for i, url in enumerate(urls):
         print("Getting: " + url)
-        get_ss(url, "out_" + str(i) + ".png")
+        out_file = now_str + "_out_" + str(i) + ".png"
+        get_ss(url, out_file)
+        body += "![" + out_file +"]" + \
+                "(https://raw.githubusercontent.com/DeepSE/bestbooks/main/" + \
+                out_file + ") \n\n"
+    
+
+    create_issue('DeepSE/bestbooks', "Best Books on " + now_str, body)
+
+
 
     driver.quit()
 
