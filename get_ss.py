@@ -30,7 +30,7 @@ def get_ss(url, out):
 if __name__ == '__main__':
     urls = ['https://www.amazon.com/gp/bestsellers/books',
             'http://www.yes24.com/24/Category/BestSeller',
-            'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?range=0&kind=0&orderClick=DBA&mallGb=KOR&linkClass=0'
+            'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf'
     ]
 
     now = datetime.datetime.now()
@@ -42,9 +42,9 @@ if __name__ == '__main__':
         print("Getting: " + url)
         out_file = now_str + "_out_" + str(i) + ".png"
         get_ss(url, out_file)
-        body += "![" + out_file +"]" + \
+        body += url +  "\n![" + out_file +"]" + \
                 "(https://raw.githubusercontent.com/DeepSE/bestbooks/main/" + \
-                out_file + ") \n\n"
+                out_file + ")\n\n"
     
 
     create_issue('DeepSE/bestbooks', "Best Books on " + now_str, body)
