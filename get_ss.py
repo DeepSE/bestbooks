@@ -26,6 +26,7 @@ def get_ss(url, out):
     
 if __name__ == '__main__':
     urls = ['https://www.amazon.com/gp/bestsellers/books',
+            'http://www.yes24.com/24/Category/BestSeller',
             'http://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?range=0&kind=0&orderClick=DBA&mallGb=KOR&linkClass=0'
     ]
 
